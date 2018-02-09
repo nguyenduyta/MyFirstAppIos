@@ -45,7 +45,7 @@
                                             <action selector="resetYourName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FzO-ib-20B"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-1p-dFV">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-1p-dFV">
                                         <rect key="frame" x="0.0" y="70.5" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
