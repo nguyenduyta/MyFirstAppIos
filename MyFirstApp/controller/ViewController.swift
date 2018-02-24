@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var nameInputField: UITextField!
     @IBOutlet weak var helloTextView: UITextView!
     @IBOutlet weak var loadingImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return true
     }
     
+    @IBAction func returned(segue: UIStoryboardSegue) {
+        helloTextView.text = "Welcome back!"
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         helloTextView.text = "Hello \(nameInputField.text!) ! How are you!"
     }
@@ -36,6 +41,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! Page2Controller
+        destination.dataExchangeFromScreen1 = nameInputField.text
+    }
+    
     //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // dismiss the picker if the user canceled
@@ -55,6 +66,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBAction func resetYourName(_ sender: UIButton) {
         nameInputField.text = ""
         helloTextView.text = ""
+    }
+
+    @IBAction func openNewScreen(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "Screen1Tosreen2", sender: self)
     }
     
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {

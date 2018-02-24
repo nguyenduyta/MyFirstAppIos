@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682E343D2030998700F51CFD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E343C2030998700F51CFD /* Utils.swift */; };
+		682E343F2031E6EB00F51CFD /* Page2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E343E2031E6EB00F51CFD /* Page2Controller.swift */; };
+		683940DC2041C0AB003BA8BA /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683940DB2041C0AB003BA8BA /* RatingControl.swift */; };
 		68A47011202B50F7006D4ADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A47010202B50F7006D4ADC /* AppDelegate.swift */; };
 		68A47013202B50F7006D4ADC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A47012202B50F7006D4ADC /* ViewController.swift */; };
 		68A47016202B50F7006D4ADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A47014202B50F7006D4ADC /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		682E343C2030998700F51CFD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		682E343E2031E6EB00F51CFD /* Page2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2Controller.swift; sourceTree = "<group>"; };
+		683940DB2041C0AB003BA8BA /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		68A4700D202B50F7006D4ADC /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A47010202B50F7006D4ADC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68A47012202B50F7006D4ADC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		682E3438203098EA00F51CFD /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		682E34392030990900F51CFD /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				68A47012202B50F7006D4ADC /* ViewController.swift */,
+				682E343E2031E6EB00F51CFD /* Page2Controller.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		682E343A2030992300F51CFD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				68A47014202B50F7006D4ADC /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		682E343B2030992C00F51CFD /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				682E343C2030998700F51CFD /* Utils.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		683940DD2041C0CE003BA8BA /* control */ = {
+			isa = PBXGroup;
+			children = (
+				683940DB2041C0AB003BA8BA /* RatingControl.swift */,
+			);
+			path = control;
+			sourceTree = "<group>";
+		};
 		68A47004202B50F7006D4ADC = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				68A47010202B50F7006D4ADC /* AppDelegate.swift */,
-				68A47012202B50F7006D4ADC /* ViewController.swift */,
-				68A47014202B50F7006D4ADC /* Main.storyboard */,
+				683940DD2041C0CE003BA8BA /* control */,
+				682E343B2030992C00F51CFD /* helper */,
+				682E343A2030992300F51CFD /* view */,
+				682E34392030990900F51CFD /* controller */,
+				682E3438203098EA00F51CFD /* model */,
 				68A47017202B50F7006D4ADC /* Assets.xcassets */,
 				68A47019202B50F7006D4ADC /* LaunchScreen.storyboard */,
 				68A4701C202B50F7006D4ADC /* Info.plist */,
@@ -201,6 +250,9 @@
 			files = (
 				68A47013202B50F7006D4ADC /* ViewController.swift in Sources */,
 				68A47011202B50F7006D4ADC /* AppDelegate.swift in Sources */,
+				682E343D2030998700F51CFD /* Utils.swift in Sources */,
+				683940DC2041C0AB003BA8BA /* RatingControl.swift in Sources */,
+				682E343F2031E6EB00F51CFD /* Page2Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
