@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -16,6 +17,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var helloTextView: UITextView!
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*
+     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new meal.
+     */
+    var meal: Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +51,26 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Dispose of any resources that can be recreated.
     }
     
-    // Function will call before show next screen
-    // Send data from this controller to Page2Controller
+    //  Function will call before show next screen
+    //  Send data from this controller to Page2Controller
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let destination = segue.destination as! Page2Controller
 //        destination.dataExchangeFromScreen1 = nameInputField.text
 //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameInputField.text ?? ""
+        let photo = loadingImageView.image
+        let rating = ratingControl.rating
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        meal = Meal(name: name, photo: photo, rating: rating)
+    }
     
     //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

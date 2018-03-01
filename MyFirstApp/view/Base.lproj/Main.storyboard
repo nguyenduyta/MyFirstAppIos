@@ -160,13 +160,18 @@
                     </view>
                     <navigationItem key="navigationItem" title="New  Meal" id="eQR-QT-axc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IZC-ON-Oxo"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wQU-X8-NX8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wQU-X8-NX8">
+                            <connections>
+                                <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="unwindToMealListWithSender:" id="4Rb-0T-6eb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="helloTextView" destination="ax0-h5-fQ3" id="KHq-Cn-c4m"/>
                         <outlet property="loadingImageView" destination="i3P-1p-dFV" id="NIe-9G-2vJ"/>
                         <outlet property="nameInputField" destination="PTG-82-7Rs" id="GRR-B6-F9v"/>
                         <outlet property="ratingControl" destination="aRy-je-Ssd" id="ZsD-No-JUZ"/>
+                        <outlet property="saveButton" destination="wQU-X8-NX8" id="yaT-l1-DTZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
