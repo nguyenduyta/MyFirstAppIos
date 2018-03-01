@@ -142,14 +142,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-G2-lBC">
-                                <rect key="frame" x="16" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="returnedWithSegue:" id="vUr-AM-hgd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -159,7 +151,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New  Meal" id="eQR-QT-axc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IZC-ON-Oxo"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IZC-ON-Oxo">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="qrO-aZ-8Bd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wQU-X8-NX8">
                             <connections>
                                 <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="unwindToMealListWithSender:" id="4Rb-0T-6eb"/>
@@ -167,7 +163,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="IZC-ON-Oxo" id="Yvy-vb-YaS"/>
                         <outlet property="helloTextView" destination="ax0-h5-fQ3" id="KHq-Cn-c4m"/>
                         <outlet property="loadingImageView" destination="i3P-1p-dFV" id="NIe-9G-2vJ"/>
                         <outlet property="nameInputField" destination="PTG-82-7Rs" id="GRR-B6-F9v"/>
