@@ -167,6 +167,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="IZC-ON-Oxo" id="Yvy-vb-YaS"/>
                         <outlet property="helloTextView" destination="ax0-h5-fQ3" id="KHq-Cn-c4m"/>
                         <outlet property="loadingImageView" destination="i3P-1p-dFV" id="NIe-9G-2vJ"/>
                         <outlet property="nameInputField" destination="PTG-82-7Rs" id="GRR-B6-F9v"/>
