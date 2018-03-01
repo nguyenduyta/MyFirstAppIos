@@ -29,6 +29,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         return true
     }
     
+    // Fuction when back from next screen using exit
     @IBAction func returned(segue: UIStoryboardSegue) {
         helloTextView.text = "Welcome back!"
     }
@@ -42,10 +43,12 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! Page2Controller
-        destination.dataExchangeFromScreen1 = nameInputField.text
-    }
+    // Function will call before show next screen
+    // Send data from this controller to Page2Controller
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destination = segue.destination as! Page2Controller
+//        destination.dataExchangeFromScreen1 = nameInputField.text
+//    }
     
     //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -62,18 +65,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         dismiss(animated: true, completion: nil)
     }
-    //MARK: Actions
-    @IBAction func resetYourName(_ sender: UIButton) {
-        nameInputField.text = ""
-        helloTextView.text = ""
-    }
-
-    @IBAction func openNewScreen(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "Screen1Tosreen2", sender: self)
-    }
     
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
-        helloTextView.text = "hi"
         // Hide the keyboard.
         nameInputField.resignFirstResponder()
         

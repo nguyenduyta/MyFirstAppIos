@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ts4-eS-26v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JVI-oM-3gY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meal Table View Controller-->
+        <!--Your Meals-->
         <scene sceneID="U9u-sL-ck7">
             <objects>
                 <tableViewController id="ts4-eS-26v" customClass="MealTableViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,10 +61,17 @@
                             <outlet property="delegate" destination="ts4-eS-26v" id="rMh-pZ-q6C"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Meals" id="r00-wH-dRM">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="7QV-36-A1u">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="3wn-xF-1Xi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNe-PV-Hf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-578" y="134"/>
+            <point key="canvasLocation" x="-239.19999999999999" y="133.5832083958021"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -79,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ax0-h5-fQ3">
-                                <rect key="frame" x="16" y="559" width="343" height="50"/>
+                                <rect key="frame" x="16" y="587" width="343" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -90,24 +97,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="next"/>
                                 <connections>
-                                    <action selector="openNewScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wO6-ab-HYV"/>
                                     <segue destination="mxZ-ut-aoP" kind="show" identifier="Screen1Tosreen2" id="ZCh-1k-cOE"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-je-Ssd" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
-                                <rect key="frame" x="120" y="515" width="134" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                        <size key="value" width="20" height="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDZ-o1-Dfa">
-                                <rect key="frame" x="16" y="47" width="343" height="413.5"/>
+                                <rect key="frame" x="16" y="93" width="343" height="383.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R7-rb-Z84">
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
@@ -115,21 +109,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Please input your name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTG-82-7Rs">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Please input meal name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTG-82-7Rs">
                                         <rect key="frame" x="0.0" y="20.5" width="343" height="20"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-4W-8Ld">
-                                        <rect key="frame" x="0.0" y="40.5" width="115" height="30"/>
-                                        <state key="normal" title="Reset your name"/>
-                                        <connections>
-                                            <action selector="resetYourName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FzO-ib-20B"/>
-                                        </connections>
-                                    </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-1p-dFV">
-                                        <rect key="frame" x="0.0" y="70.5" width="343" height="343"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="i3P-1p-dFV" secondAttribute="height" multiplier="1:1" id="kGD-w4-jEs"/>
@@ -143,6 +130,26 @@
                                     <constraint firstAttribute="trailing" secondItem="PTG-82-7Rs" secondAttribute="trailing" id="mlw-Rl-1U6"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-je-Ssd" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
+                                <rect key="frame" x="120" y="543" width="134" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                        <size key="value" width="20" height="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-G2-lBC">
+                                <rect key="frame" x="16" y="617" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="returnedWithSegue:" id="vUr-AM-hgd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -159,13 +166,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Hh3-mf-OGo" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="yhL-BC-Hdm">
                     <connections>
                         <action selector="selectImageFromLibrary:" destination="BYZ-38-t0r" id="WXq-Um-8Il"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
         <!--Page2 Controller-->
         <scene sceneID="zdw-ii-fIU">
@@ -180,9 +188,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pig-6z-yPT">
-                                <rect key="frame" x="159" y="266" width="55" height="30"/>
+                                <rect key="frame" x="105" y="266" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
+                                <state key="normal" title="Say welcome back!!"/>
                                 <connections>
                                     <segue destination="XWw-Xi-kc4" kind="unwind" unwindAction="returnedWithSegue:" id="2sQ-sH-XQU"/>
                                 </connections>
@@ -204,7 +212,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-gc-zgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XWw-Xi-kc4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="854" y="134"/>
+            <point key="canvasLocation" x="1192.8" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iOY-X6-mvG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVI-oM-3gY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Jd-5D-CBN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ts4-eS-26v" kind="relationship" relationship="rootViewController" id="Sv2-kq-HBG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CG1-CV-fgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1057" y="134"/>
         </scene>
     </scenes>
     <resources>

@@ -76,6 +76,9 @@ class MealTableViewController: UITableViewController {
         
         return cell
     }
+    // Need this function when exit unwind
+     @IBAction func returned(segue: UIStoryboardSegue) {
+    }
 
     /*
     // Override to support conditional editing of the table view.
