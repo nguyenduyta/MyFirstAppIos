@@ -53,6 +53,7 @@
                                     <outlet property="nameLabel" destination="w4B-nt-mgw" id="hId-ss-FyI"/>
                                     <outlet property="photoImageView" destination="Nnf-2Z-ALz" id="Jlp-Go-Ygy"/>
                                     <outlet property="ratingControl" destination="98b-UT-I1f" id="qpI-vE-Ajl"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="HUs-mZ-Scl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -259,4 +260,7 @@
     <resources>
         <image name="Image" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HUs-mZ-Scl"/>
+    </inferredMetricsTieBreakers>
 </document>
