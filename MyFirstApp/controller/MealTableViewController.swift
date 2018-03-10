@@ -18,6 +18,8 @@ class MealTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.isEditing = true
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
@@ -97,6 +99,22 @@ class MealTableViewController: UITableViewController {
         cell.ratingControl.rating = meal.rating
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.meals[sourceIndexPath.row]
+        meals.remove(at: sourceIndexPath.row)
+        meals.insert(movedObject, at: destinationIndexPath.row)
+        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(meals)")
+        // To check for correctness enable: self.tableView.reloadData()
     }
     
     // Override to support editing the table view.
