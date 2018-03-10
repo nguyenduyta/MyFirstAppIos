@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,13 +13,13 @@
         <!--Pictures-->
         <scene sceneID="U9u-sL-ck7">
             <objects>
-                <tableViewController id="ts4-eS-26v" customClass="MealTableViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ts4-eS-26v" customClass="PictureTableViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="382-mv-UbH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="xWM-KC-zHp" customClass="MealTableViewCell" customModule="MyFirstApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PictureTableViewCell" rowHeight="90" id="xWM-KC-zHp" customClass="PictureTableViewCell" customModule="MyFirstApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xWM-KC-zHp" id="Bg1-Aj-WLx">
@@ -53,9 +52,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="w4B-nt-mgw" id="hId-ss-FyI"/>
-                                    <outlet property="photoImageView" destination="Nnf-2Z-ALz" id="Jlp-Go-Ygy"/>
-                                    <outlet property="ratingControl" destination="98b-UT-I1f" id="qpI-vE-Ajl"/>
+                                    <outlet property="nameLabel" destination="w4B-nt-mgw" id="T0i-ri-bPh"/>
+                                    <outlet property="photoImageView" destination="Nnf-2Z-ALz" id="EAu-sg-Fy4"/>
+                                    <outlet property="ratingControl" destination="98b-UT-I1f" id="tht-iJ-e8y"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="HUs-mZ-Scl"/>
                                 </connections>
                             </tableViewCell>
@@ -80,7 +79,7 @@
         <!--New picture-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PictureViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JhX-Ab-ecl"/>
                         <viewControllerLayoutGuide type="bottom" id="cq7-S2-v4U"/>
@@ -161,16 +160,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wQU-X8-NX8">
                             <connections>
-                                <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="unwindToMealListWithSender:" id="4Rb-0T-6eb"/>
+                                <segue destination="Hh3-mf-OGo" kind="unwind" unwindAction="unwindToPictureListWithSender:" id="PkB-4K-89b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="helloTextView" destination="ax0-h5-fQ3" id="KHq-Cn-c4m"/>
-                        <outlet property="loadingImageView" destination="i3P-1p-dFV" id="NIe-9G-2vJ"/>
-                        <outlet property="nameInputField" destination="PTG-82-7Rs" id="GRR-B6-F9v"/>
-                        <outlet property="ratingControl" destination="aRy-je-Ssd" id="ZsD-No-JUZ"/>
-                        <outlet property="saveButton" destination="wQU-X8-NX8" id="yaT-l1-DTZ"/>
+                        <outlet property="helloTextView" destination="ax0-h5-fQ3" id="h50-MQ-VNu"/>
+                        <outlet property="loadingImageView" destination="i3P-1p-dFV" id="amk-0C-0mG"/>
+                        <outlet property="nameInputField" destination="PTG-82-7Rs" id="egR-1Q-gbX"/>
+                        <outlet property="ratingControl" destination="aRy-je-Ssd" id="F9r-oT-gnv"/>
+                        <outlet property="saveButton" destination="wQU-X8-NX8" id="7kD-SL-alO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -263,6 +262,6 @@
         <image name="Image" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ttc-lD-7nY"/>
+        <segue reference="HUs-mZ-Scl"/>
     </inferredMetricsTieBreakers>
 </document>

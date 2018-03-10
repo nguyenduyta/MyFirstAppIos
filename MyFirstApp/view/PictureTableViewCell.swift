@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  PictureTableViewCell.swift
 //  MyFirstApp
 //
 //  Created by Ta Nguyen on 2018/03/01.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class PictureTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!

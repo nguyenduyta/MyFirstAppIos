@@ -1,5 +1,5 @@
 //
-//  Meal.swift
+//  Picture.swift
 //  MyFirstApp
 //
 //  Created by Ta Nguyen on 2018/03/01.
@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class Meal: NSObject, NSCoding {
+class Picture: NSObject, NSCoding {
     
     //MARK: Properties
     var name: String
@@ -18,7 +18,7 @@ class Meal: NSObject, NSCoding {
     
     //MARK: Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("pictures")
     
     //MARK: Types
     
@@ -56,11 +56,11 @@ class Meal: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         // The name is required. If we cannot decode a name string, the initializer should fail.
         guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
-            os_log("Unable to decode the name for a Meal object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the name for a Picture object.", log: OSLog.default, type: .debug)
             return nil
         }
         
-        // Because photo is an optional property of Meal, just use conditional cast.
+        // Because photo is an optional property of Picture, just use conditional cast.
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)

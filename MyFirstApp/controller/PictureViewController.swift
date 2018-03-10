@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Properties
     
@@ -18,27 +18,23 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    /*
-     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
-     or constructed as part of adding a new meal.
-     */
-    var meal: Meal?
+
+    var picture: Picture?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         nameInputField.delegate = self
         
-        // Set up views if editing an existing Meal.
-        if let meal = meal {
-            navigationItem.title = meal.name
-            nameInputField.text   = meal.name
-            loadingImageView.image = meal.photo
-            ratingControl.rating = meal.rating
+        // Set up views if editing an existing Picture.
+        if let picture = picture {
+            navigationItem.title = picture.name
+            nameInputField.text   = picture.name
+            loadingImageView.image = picture.photo
+            ratingControl.rating = picture.rating
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
+        // Enable the Save button only if the text field has a valid picture name.
         updateSaveButtonState()
     }
     
@@ -55,16 +51,16 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        let isPresentingInAddPictureMode = presentingViewController is UINavigationController
         
-        if isPresentingInAddMealMode {
+        if isPresentingInAddPictureMode {
             dismiss(animated: true, completion: nil)
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
         }
         else {
-            fatalError("The MealViewController is not inside a navigation controller.")
+            fatalError("The PictureViewController is not inside a navigation controller.")
         }
     }
     
@@ -95,8 +91,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let photo = loadingImageView.image
         let rating = ratingControl.rating
         
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-        meal = Meal(name: name, photo: photo, rating: rating)
+        // Set the meal to be passed to PictureTableViewController after the unwind segue.
+        picture = Picture(name: name, photo: photo, rating: rating)
     }
     
     //MARK: UITextFieldDelegate

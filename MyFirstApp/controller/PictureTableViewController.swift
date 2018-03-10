@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  PictureTableViewController.swift
 //  MyFirstApp
 //
 //  Created by Ta Nguyen on 2018/03/01.
@@ -9,11 +9,11 @@
 import UIKit
 import os.log
 
-class MealTableViewController: UITableViewController {
+class PictureTableViewController: UITableViewController {
 
     //MARK: Properties
     
-    var meals = [Meal]()
+    var pictures = [Picture]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +24,11 @@ class MealTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
-        if let savedMeals = loadMeals() {
-            meals += savedMeals
+        if let savedPictures = loadPictures() {
+            pictures += savedPictures
         } else {
             // Load the sample data.
-            loadSampleMeals()
+            loadSamplePictures()
         }
     }
     
@@ -39,36 +39,36 @@ class MealTableViewController: UITableViewController {
 
     //MARK: Private Methods
     
-    private func loadSampleMeals() {
-        let photo1 = UIImage(named: "meal1")
-        let photo2 = UIImage(named: "meal2")
-        let photo3 = UIImage(named: "meal3")
+    private func loadSamplePictures() {
+        let photo1 = UIImage(named: "picture1")
+        let photo2 = UIImage(named: "picture2")
+        let photo3 = UIImage(named: "picture3")
         
-        guard let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4) else {
-            fatalError("Unable to instantiate meal1")
+        guard let picture1 = Picture(name: "Caprese Salad", photo: photo1, rating: 4) else {
+            fatalError("Unable to instantiate picture1")
         }
         
-        guard let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
-            fatalError("Unable to instantiate meal2")
+        guard let picture2 = Picture(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
+            fatalError("Unable to instantiate picture2")
         }
         
-        guard let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
-            fatalError("Unable to instantiate meal2")
+        guard let picture3 = Picture(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
+            fatalError("Unable to instantiate picture3")
         }
         
-        meals += [meal1, meal2, meal3]
+        pictures += [picture1, picture2, picture3]
     }
     
-    private func loadMeals() -> [Meal]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    private func loadPictures() -> [Picture]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Picture.ArchiveURL.path) as? [Picture]
     }
 
-    private func saveMeals() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+    private func savePictures() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(pictures, toFile: Picture.ArchiveURL.path)
         if isSuccessfulSave {
-            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+            os_log("Pictures successfully saved.", log: OSLog.default, type: .debug)
         } else {
-            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+            os_log("Failed to save Pictures...", log: OSLog.default, type: .error)
         }
     }
 
@@ -79,24 +79,24 @@ class MealTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return pictures.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "MealTableViewCell"
+        let cellIdentifier = "PictureTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PictureTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of PictureTableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
+        let picture = pictures[indexPath.row]
         
-        cell.nameLabel.text = meal.name
-        cell.photoImageView.image = meal.photo
-        cell.ratingControl.rating = meal.rating
+        cell.nameLabel.text = picture.name
+        cell.photoImageView.image = picture.photo
+        cell.ratingControl.rating = picture.rating
         
         return cell
     }
@@ -111,18 +111,18 @@ class MealTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.meals[sourceIndexPath.row]
-        meals.remove(at: sourceIndexPath.row)
-        meals.insert(movedObject, at: destinationIndexPath.row)
-        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(meals)")
+        let movedObject = self.pictures[sourceIndexPath.row]
+        pictures.remove(at: sourceIndexPath.row)
+        pictures.insert(movedObject, at: destinationIndexPath.row)
+        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(pictures)")
     }
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            meals.remove(at: indexPath.row)
-            saveMeals()
+            pictures.remove(at: indexPath.row)
+            savePictures()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -140,24 +140,24 @@ class MealTableViewController: UITableViewController {
     }
     
     //MARK: Actions
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
+    @IBAction func unwindToPictureList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? PictureViewController, let picture = sourceViewController.picture {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
-                meals[selectedIndexPath.row] = meal
+                // Update an existing picture.
+                pictures[selectedIndexPath.row] = picture
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else {
-                // Add a new meal.
-                let newIndexPath = IndexPath(row: meals.count, section: 0)
+                // Add a new picture.
+                let newIndexPath = IndexPath(row: pictures.count, section: 0)
                 
-                meals.append(meal)
+                pictures.append(picture)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             
             // Save the meals.
-            saveMeals()
+            savePictures()
         }
     }
     
@@ -169,23 +169,23 @@ class MealTableViewController: UITableViewController {
         switch(segue.identifier ?? "") {
             
         case "AddItem":
-            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            os_log("Adding a new picture.", log: OSLog.default, type: .debug)
             
         case "ShowDetail":
-            guard let mealDetailViewController = segue.destination as? MealViewController else {
+            guard let pictureDetailViewController = segue.destination as? PictureViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedMealCell = sender as? MealTableViewCell else {
+            guard let selectedPictureCell = sender as? PictureTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard let indexPath = tableView.indexPath(for: selectedMealCell) else {
+            guard let indexPath = tableView.indexPath(for: selectedPictureCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedMeal = meals[indexPath.row]
-            mealDetailViewController.meal = selectedMeal
+            let selectedPicture = pictures[indexPath.row]
+            pictureDetailViewController.picture = selectedPicture
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
