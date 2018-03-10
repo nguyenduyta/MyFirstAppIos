@@ -90,6 +90,7 @@
 		682E343B2030992C00F51CFD /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				683940DB2041C0AB003BA8BA /* RatingControl.swift */,
 				682E343C2030998700F51CFD /* Utils.swift */,
 			);
 			path = helper;
@@ -101,14 +102,6 @@
 				683513142046FD8100AEEB6C /* Meal.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		683940DD2041C0CE003BA8BA /* control */ = {
-			isa = PBXGroup;
-			children = (
-				683940DB2041C0AB003BA8BA /* RatingControl.swift */,
-			);
-			path = control;
 			sourceTree = "<group>";
 		};
 		68A47004202B50F7006D4ADC = {
@@ -133,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				68A47010202B50F7006D4ADC /* AppDelegate.swift */,
-				683940DD2041C0CE003BA8BA /* control */,
 				68351316204702CD00AEEB6C /* model */,
 				682E343B2030992C00F51CFD /* helper */,
 				682E343A2030992300F51CFD /* view */,

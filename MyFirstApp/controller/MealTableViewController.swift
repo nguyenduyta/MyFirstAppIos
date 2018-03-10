@@ -116,7 +116,7 @@ class MealTableViewController: UITableViewController {
         NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(meals)")
         // To check for correctness enable: self.tableView.reloadData()
     }
-    
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
