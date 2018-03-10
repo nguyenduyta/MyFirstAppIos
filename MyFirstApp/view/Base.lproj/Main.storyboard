@@ -38,12 +38,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="98b-UT-I1f" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
-                                            <rect key="frame" x="98" y="40" width="252" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="98b-UT-I1f" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
+                                            <rect key="frame" x="98" y="40" width="113" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                     <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                    <size key="value" width="20" height="100"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
@@ -87,14 +90,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ax0-h5-fQ3">
-                                <rect key="frame" x="16" y="587" width="343" height="22"/>
+                                <rect key="frame" x="16" y="563" width="343" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4M-ZH-K82">
-                                <rect key="frame" x="293" y="617" width="66" height="30"/>
+                                <rect key="frame" x="293" y="593" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="next"/>
                                 <connections>
@@ -131,8 +134,8 @@
                                     <constraint firstAttribute="trailing" secondItem="PTG-82-7Rs" secondAttribute="trailing" id="mlw-Rl-1U6"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-je-Ssd" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
-                                <rect key="frame" x="120" y="543" width="134" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-je-Ssd" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
+                                <rect key="frame" x="132" y="519" width="118" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="starSize">
@@ -179,7 +182,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1153" y="134"/>
+            <point key="canvasLocation" x="1152.8" y="133.5832083958021"/>
         </scene>
         <!--Page2 Controller-->
         <scene sceneID="zdw-ii-fIU">
