@@ -90,9 +90,11 @@ class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let name = nameInputField.text ?? ""
         let photo = loadingImageView.image
         let rating = ratingControl.rating
+        let position = Utils.loadPictures()?.count ?? 1
+        
         
         // Set the meal to be passed to PictureTableViewController after the unwind segue.
-        picture = Picture(name: name, photo: photo, rating: rating)
+        picture = Picture(name: name, photo: photo, rating: rating, position: position)
     }
     
     //MARK: UITextFieldDelegate

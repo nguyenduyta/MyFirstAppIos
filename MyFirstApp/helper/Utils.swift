@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+
+class Utils {
+    static func loadPictures() -> [Picture]? {
+        let positionSortDescriptor = NSSortDescriptor(key: "position", ascending: false)
+        let pictures = NSKeyedUnarchiver.unarchiveObject(withFile: Picture.ArchiveURL.path) as? [Picture]
+        
+//        return ((pictures! as NSArray).sortedArray(using: [positionSortDescriptor]) as! [Picture])
+        return pictures
+    }
+}

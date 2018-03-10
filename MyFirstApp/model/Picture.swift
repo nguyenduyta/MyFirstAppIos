@@ -15,6 +15,7 @@ class Picture: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var rating: Int
+    var position: Int
     
     //MARK: Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -26,9 +27,10 @@ class Picture: NSObject, NSCoding {
         static let name = "name"
         static let photo = "photo"
         static let rating = "rating"
+        static let position = "position"
     }
     
-    init?(name: String, photo: UIImage?, rating: Int) {
+    init?(name: String, photo: UIImage?, rating: Int, position: Int) {
         /// The name must not be empty
         guard !name.isEmpty else {
             return nil
@@ -39,10 +41,15 @@ class Picture: NSObject, NSCoding {
             return nil
         }
         
+        guard (position >= 0) else {
+            return nil
+        }
+        
         // Initialize stored properties.
         self.name = name
         self.photo = photo
         self.rating = rating
+        self.position = position
     }
     
     //MARK: NSCoding
@@ -51,6 +58,7 @@ class Picture: NSObject, NSCoding {
         aCoder.encode(name, forKey: PropertyKey.name)
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(rating, forKey: PropertyKey.rating)
+        aCoder.encode(position, forKey: PropertyKey.position)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -65,8 +73,10 @@ class Picture: NSObject, NSCoding {
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
+        let position = aDecoder.decodeInteger(forKey: PropertyKey.position)
+        
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating)
+        self.init(name: name, photo: photo, rating: rating, position: position)
     }
 }
 

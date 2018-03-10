@@ -24,7 +24,7 @@ class PictureTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
-        if let savedPictures = loadPictures() {
+        if let savedPictures = Utils.loadPictures() {
             pictures += savedPictures
         } else {
             // Load the sample data.
@@ -44,23 +44,19 @@ class PictureTableViewController: UITableViewController {
         let photo2 = UIImage(named: "picture2")
         let photo3 = UIImage(named: "picture3")
         
-        guard let picture1 = Picture(name: "Caprese Salad", photo: photo1, rating: 4) else {
+        guard let picture1 = Picture(name: "Caprese Salad", photo: photo1, rating: 4, position: 1) else {
             fatalError("Unable to instantiate picture1")
         }
         
-        guard let picture2 = Picture(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
+        guard let picture2 = Picture(name: "Chicken and Potatoes", photo: photo2, rating: 5, position: 2) else {
             fatalError("Unable to instantiate picture2")
         }
         
-        guard let picture3 = Picture(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
+        guard let picture3 = Picture(name: "Pasta with Meatballs", photo: photo3, rating: 3, position: 3) else {
             fatalError("Unable to instantiate picture3")
         }
         
         pictures += [picture1, picture2, picture3]
-    }
-    
-    private func loadPictures() -> [Picture]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Picture.ArchiveURL.path) as? [Picture]
     }
 
     private func savePictures() {
