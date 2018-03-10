@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Your Meals-->
+        <!--Pictures-->
         <scene sceneID="U9u-sL-ck7">
             <objects>
                 <tableViewController id="ts4-eS-26v" customClass="MealTableViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="ts4-eS-26v" id="rMh-pZ-q6C"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Meals" id="r00-wH-dRM">
+                    <navigationItem key="navigationItem" title="Pictures" id="r00-wH-dRM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7QV-36-A1u">
                             <connections>
                                 <segue destination="b0Y-kG-pZu" kind="presentation" identifier="AddItem" id="3wn-xF-1Xi"/>
@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="-239.19999999999999" y="133.5832083958021"/>
         </scene>
-        <!--New  Meal-->
+        <!--New picture-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,23 +104,11 @@
                                     <segue destination="mxZ-ut-aoP" kind="show" identifier="Screen1Tosreen2" id="ZCh-1k-cOE"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDZ-o1-Dfa">
-                                <rect key="frame" x="16" y="93" width="343" height="383.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDZ-o1-Dfa">
+                                <rect key="frame" x="16" y="94" width="343" height="343"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R7-rb-Z84">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Please input meal name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTG-82-7Rs">
-                                        <rect key="frame" x="0.0" y="20.5" width="343" height="20"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
-                                    </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-1p-dFV">
-                                        <rect key="frame" x="0.0" y="40.5" width="343" height="343"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="i3P-1p-dFV" secondAttribute="height" multiplier="1:1" id="kGD-w4-jEs"/>
@@ -130,9 +118,6 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="PTG-82-7Rs" secondAttribute="trailing" id="mlw-Rl-1U6"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-je-Ssd" customClass="RatingControl" customModule="MyFirstApp" customModuleProvider="target">
                                 <rect key="frame" x="132" y="519" width="118" height="36"/>
@@ -146,6 +131,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R7-rb-Z84">
+                                <rect key="frame" x="16" y="456" width="101" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Please input picture name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTG-82-7Rs">
+                                <rect key="frame" x="16" y="485" width="343" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -154,7 +153,7 @@
                             <constraint firstItem="GDZ-o1-Dfa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uOY-H7-RiW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New  Meal" id="eQR-QT-axc">
+                    <navigationItem key="navigationItem" title="New picture" id="eQR-QT-axc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IZC-ON-Oxo">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="qrO-aZ-8Bd"/>
@@ -264,6 +263,6 @@
         <image name="Image" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HUs-mZ-Scl"/>
+        <segue reference="Ttc-lD-7nY"/>
     </inferredMetricsTieBreakers>
 </document>

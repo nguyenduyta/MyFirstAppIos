@@ -115,7 +115,6 @@ class MealTableViewController: UITableViewController {
         meals.remove(at: sourceIndexPath.row)
         meals.insert(movedObject, at: destinationIndexPath.row)
         NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(meals)")
-        // To check for correctness enable: self.tableView.reloadData()
     }
 
     // Override to support editing the table view.
