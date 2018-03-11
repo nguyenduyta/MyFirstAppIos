@@ -11,11 +11,11 @@ import Foundation
 
 class Utils {
     static func loadPictures() -> [Picture]? {
-        let positionSortDescriptor = NSSortDescriptor(key: "position", ascending: false)
+//        let positionSortDescriptor = NSSortDescriptor(key: "position", ascending: false)
         let pictures = NSKeyedUnarchiver.unarchiveObject(withFile: Picture.ArchiveURL.path) as? [Picture]
 
     
-        //return ((pictures! as NSArray).sortedArray(using: [positionSortDescriptor]) as! [Picture])
-        return pictures?.sorted(by: {$0.position > $1.position})
+//        //return ((pictures! as NSArray).sortedArray(using: [positionSortDescriptor]) as! [Picture])
+        return pictures?.sorted(by: {$0.position < $1.position})
     }
 }
